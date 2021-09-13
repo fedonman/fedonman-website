@@ -1,0 +1,212 @@
+---
+navigationLabel: home
+---
+
+import { Link as GatsbyLink } from 'gatsby'
+import { mix } from '@theme-ui/color'
+import { PostCard } from '../components/post-card'
+import { ProfileInfo } from '../components/profile-info'
+import { NewsletterForm } from '../components/newsletter-form'
+
+<Grid
+  sx={{
+    gap: 4,
+    mb: 5
+  }}
+>
+
+<Alert variant="warning">
+  <Grid
+    sx={{
+      gridTemplateColumns: '1fr',
+      gap: [3, 0],
+    }}
+  >
+    <Flex
+      sx={{
+        alignItems: ['flex-start', 'center']
+      }}
+    >
+      I'm currently looking for new opportunities.{' '}
+      <Box role="img" aria-label="Eyes" sx={{ml: 2, mt: 1}}>
+        👀
+      </Box>
+    </Flex>
+    <Text>
+      Find me on LinkedIn:{' '}
+      <Link href="https://linkedin.com/in/fedonman" target="_blank" rel="noopener">
+        @fedonman
+      </Link>
+    </Text>
+
+  </Grid>
+</Alert>
+
+<Box
+  sx={{
+    minHeight: '120px',
+  }}
+>
+  <Grid sx={{ gap: 1 }}>
+    <Heading as="h1" variant="styles.h1">
+      Vyron Vasileiadis
+    </Heading>
+    <Text>Senior Software Engineer / MCT</Text>
+    <Text>Location: Athens / Greece</Text>
+  </Grid>
+</Box>
+
+<Grid
+  sx={{
+    alignItems: 'center',
+    gridTemplateColumns: 'auto 1fr'
+  }}
+>
+<Button
+  as="a"
+  title="View CV"
+  variant="success"
+  href="/Vyron_Vasileiadis_Resume_2021.pdf"
+  target="_blank"
+  rel="noopener"
+  sx={{
+    mr: 2,
+  }}
+>
+  View CV/Resume
+</Button>
+
+</Grid>
+
+</Grid>
+
+<Box
+  sx={{
+    mb: 5
+  }}
+>
+
+## intro
+
+Well hey there! 👋 I'm Vyron, a senior software enginneer from Greece with 9+ years of experience, an MSc in Space Science, and a BSc in Computer Science.
+My favourite topics are cloud architecture, machine &amp; deep learning and quantum computing.
+I am passionate about education and the ecosystem and have taken over the role of mentor in several hackathons and incubators.
+
+</Box>
+
+<Grid
+  sx={{ gridTemplateColumns: ['1fr', '1fr 1fr'], gridRowGap: 5, mb: 5,}}
+>
+<Box>
+
+## contact
+
+<Text as="p">Email</Text>
+<Link href="mailto:hi@fedonman.com" target="_blank" variant="styles.a" rel="noopener">
+  hi@fedonman.com
+</Link>
+
+<Text as="p">Twitter</Text>
+<Link href="https://twitter.com/fedonman" target="_blank" variant="styles.a" rel="noopener">
+  https://twitter.com/fedonman
+</Link>
+
+<Text as="p">GitHub</Text>
+<Link href="https://github.com/fedonman" target="_blank" variant="styles.a" rel="noopener">
+  https://github.com/fedonman
+</Link>
+
+<Text as="p">LinkedIn</Text>
+<Link href="https://linkedin.com/in/fedonman/" target="_blank" variant="styles.a">
+  https://linkedin.com/in/fedonman/
+</Link>
+</Box>
+
+<Box>
+
+## blog topics
+
+<SourceTags>
+  {(tags) => (
+    <Box>
+      {tags
+        .sort((a, b) => b.percent - a.percent)
+        .map((tag, index) => {
+          const { name, count, percent } = tag
+          return (
+            <Badge
+              key={index}
+              variant="primary"
+              sx={{
+                mr: 2,
+                mb: 2,
+                color: mix('secondary', 'primary', `${index / tags.length}`),
+                borderColor: mix('secondary', 'primary', `${index / tags.length}`),
+              }}
+            >
+              {name}
+            </Badge>
+          )
+        })}
+    </Box>
+  )}
+</SourceTags>
+
+</Box>
+</Grid>
+
+## latest posts
+
+<SourceList filter="posts">
+  {(posts) => (
+    <Grid
+      sx={{
+        gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'],
+        mb: 5,
+      }}
+    >
+      {posts
+        .filter((edge) => !edge.node.frontmatter.isPrivate)
+        .reduce((posts, post) => {
+          return post.node.frontmatter.pinned ? [post, ...posts] : [...posts, post]
+        }, [])
+        .splice(0, 4)
+        .map((edge, index) => {
+          const {
+            featuredImageUrl,
+            frontmatter: { title, tags, date, dateModified, pinned },
+            excerpt,
+            fields: { slug },
+          } = edge.node
+          return (
+            <PostCard
+              key={index}
+              title={title}
+              featuredImageUrl={featuredImageUrl}
+              tags={tags}
+              date={date}
+              dateModified={dateModified}
+              excerpt={excerpt}
+              slug={slug}
+              pinned={pinned}
+            />
+          )
+        })}
+    </Grid>
+  )}
+</SourceList>
+
+<Flex
+  sx={{
+    justifyContent: 'center',
+  }}
+>
+  <Box>
+    <Button as={GatsbyLink} variant="ghost" to="/posts">
+      More posts{' '}
+      <Box as="span" role="img" aria-label="pencil">
+        ✏️
+      </Box>
+    </Button>
+  </Box>
+</Flex>
