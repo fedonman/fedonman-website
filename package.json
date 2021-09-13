@@ -2,6 +2,10 @@
   "name": "fedonman-website",
   "private": false,
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedonman/fedonman-website.git"
+  },
   "scripts": {
     "develop": "gatsby develop",
     "clean": "gatsby clean",
@@ -25,13 +29,13 @@
     "downshift": "^6.0.16",
     "faunadb": "^4.3.0",
     "fuse.js": "^6.4.6",
-    "gatsby": "^3.9.1",
+    "gatsby": "^3.13.0",
     "gatsby-plugin-gatsby-cloud": "^2.10.1",
-    "gatsby-plugin-google-analytics": "^3.10.0",
+    "gatsby-plugin-google-analytics": "^3.13.0",
     "gatsby-plugin-image": "^1.9.0",
     "gatsby-plugin-mdx": "^2.10.1",
     "gatsby-plugin-mdx-embed": "^0.0.20-alpha",
-    "gatsby-plugin-sharp": "^3.9.0",
+    "gatsby-plugin-sharp": "^3.13.0",
     "gatsby-plugin-sitemap": "^4.6.0",
     "gatsby-source-filesystem": "^3.10.0",
     "gatsby-transformer-sharp": "^3.10.0",
