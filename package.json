@@ -13,8 +13,7 @@
     "build": "gatsby build && yarn robots",
     "serve": "gatsby serve",
     "robots": "cp robots.txt public/",
-    "prettier": "prettier --config ./.prettierrc.js --ignore-path ./.prettierignore --write \"**/*.{json,js,ts,tsx,mdx}\"",
-    "prepare": "husky install"
+    "prettier": "prettier --config ./.prettierrc.js --ignore-path ./.prettierignore --write \"**/*.{json,js,ts,tsx,mdx}\""
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
@@ -30,7 +29,7 @@
     "faunadb": "^4.3.0",
     "fuse.js": "^6.4.6",
     "gatsby": "^3.13.0",
-    "gatsby-plugin-gatsby-cloud": "^2.10.1",
+    "gatsby-plugin-gatsby-cloud": "^3.1.0",
     "gatsby-plugin-google-analytics": "^3.13.0",
     "gatsby-plugin-image": "^1.9.0",
     "gatsby-plugin-mdx": "^2.10.1",

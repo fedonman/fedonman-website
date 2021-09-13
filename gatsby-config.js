@@ -13,7 +13,7 @@ module.exports = {
       'Kubernetes'
     ],
     siteUrl: 'https://fedonman.com',
-    siteImage: 'https://paulie.dev/images/paulie-open-graph-image.jpg',
+    siteImage: 'https://fedonman.com/website-screenshot.png',
     profileImage: ``,
     lang: `en`,
     config: {
