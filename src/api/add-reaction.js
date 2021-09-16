@@ -1,6 +1,7 @@
 const faunadb = require('faunadb')
 
 export default async function handler(req, res) {
+  console.log(req.body);
   const { slug, reaction, date } = req.body
 
   const q = faunadb.query
