@@ -13,11 +13,11 @@ module.exports = {
       'Kubernetes'
     ],
     siteUrl: 'https://fedonman.com',
-    siteImage: 'https://fedonman.com/website-screenshot.png',
+    siteImage: 'https://fedonman.com/images/banner.png',
     profileImage: ``,
     lang: `en`,
     config: {
-      sidebarWidth: 200,
+      sidebarWidth: 180,
     },
   },
   plugins: [
@@ -49,7 +49,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-76055934-4',
+        trackingId: 'UA-102444399-1',
       },
     },
     `gatsby-plugin-sitemap`,
